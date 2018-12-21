@@ -1,0 +1,40 @@
+.red {
+    color: #FE0101;
+}
+
+.blue {
+    color: #0101FE;
+}
+
+.white {
+    color:#FEFEFE;
+}
+
+.tam {
+    font-size: 200%;
+}
+
+.background-danger {
+    background-color: #dc3545;
+}
+
+.background-blue {
+    background-color: #007bff;
+}
+
+.border-danger {
+    border-color: #dc3545;
+}
+
+.border-orange {
+    border-color: #FEA101;
+}
+
+.border-blue {
+    border-color: #007bff;
+}
+
+.tam .blue {
+    color: #0101FE;
+    text-transform: capitalize;
+}

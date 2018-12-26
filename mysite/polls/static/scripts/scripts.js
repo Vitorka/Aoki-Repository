@@ -2,32 +2,37 @@ function teste() {
     var element = document.getElementById("button")
     var border = document.getElementById("border")
     var header = document.getElementById("header")
+    var modal = document.getElementById("modal")
 
     if(element.value == 1) {
         document.getElementById("button").innerHTML = "First Graph"
         document.getElementById("button").value = 2
         element.classList.remove("btn-danger")
         element.classList.add("btn-primary")
+        modal.classList.remove("btn-danger")
+        modal.classList.add("btn-primary")
         border.classList.remove("border-danger")
         border.classList.add("border-blue")
         header.classList.remove("background-danger")
         header.classList.add("background-blue")
-        renderGraph2()
+        renderGraph2('graph')
     } else {
         document.getElementById("button").innerHTML = "Second Graph"
         document.getElementById("button").value = 1
         element.classList.remove("btn-primary")
         element.classList.add("btn-danger")
+        modal.classList.remove("btn-primary")
+        modal.classList.add("btn-danger")
         border.classList.remove("border-blue")
         border.classList.add("border-danger")
         header.classList.remove("background-blue")
         header.classList.add("background-danger")
-        renderGraph()
+        renderGraph('graph')
     }
 }
 
-renderGraph()
-function renderGraph() {
+renderGraph('graph')
+function renderGraph(id) {
 
     /**
  * (c) 2010-2018 Torstein Honsi
@@ -240,7 +245,7 @@ function renderGraph() {
     // Apply the theme
     Highcharts.setOptions(Highcharts.theme);
 
-    var chart = Highcharts.chart('graph', {
+    var chart = Highcharts.chart(id, {
 
         title: {
             text: 'Solar Employment Growth by Sector, 2010-2016'
@@ -308,7 +313,7 @@ function renderGraph() {
 
 }
 
-function renderGraph2() {
+function renderGraph2(id) {
 
     Highcharts.setOptions(Highcharts.default)
 
@@ -316,7 +321,7 @@ function renderGraph2() {
         'https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/usdeur.json',
         function (data) {
 
-            Highcharts.chart('graph', {
+            Highcharts.chart(id, {
                 chart: {
                     zoomType: 'x'
                 },
@@ -373,4 +378,30 @@ function renderGraph2() {
             });
         }
     );
+}
+
+function modal() {
+
+    var element = document.getElementById("button")
+    var header = document.getElementById("modal_header")
+    var content = document.getElementById("model_content")
+
+    if(element.value == 1) {
+        header.classList.remove("background-blue")
+        header.classList.add("background-danger")
+        header.classList.remove("border-blue")
+        header.classList.add("border-danger")
+        content.classList.remove("border-blue")
+        content.classList.add("border-danger")
+        renderGraph('modal_content')
+    } else {
+        header.classList.remove("background-danger")
+        header.classList.add("background-blue")
+        header.classList.remove("border-danger")
+        header.classList.add("border-blue")
+        content.classList.remove("border-danger")
+        content.classList.add("border-blue")
+        renderGraph2('modal_content')
+    }
+
 }

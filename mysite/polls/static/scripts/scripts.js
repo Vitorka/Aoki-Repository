@@ -1,3 +1,12 @@
+function alerta(id) {
+    if(id == 1) {
+        renderGraph('graph')
+    } else if (id == 2) {
+        renderGraph2('graph')
+    } else {
+        renderGraph('modal_content')
+    }
+}
 function teste() {
     var element = document.getElementById("button")
     var border = document.getElementById("border")
@@ -246,6 +255,10 @@ function renderGraph(id) {
     Highcharts.setOptions(Highcharts.theme);
 
     var chart = Highcharts.chart(id, {
+
+//        chart: {
+//            type: 'column'
+//        },
 
         title: {
             text: 'Solar Employment Growth by Sector, 2010-2016'
